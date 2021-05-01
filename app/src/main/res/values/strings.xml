@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Third assignment template</string>
-    <string name="open_receiver_activity">Open new activity</string>
-    <string name="btn_add">Add note</string>
-    <string name="type_note_here">Type note here</string>
+    <string name="appName">Third assignment template</string>
+    <string name="openReceiverActivity">Open new activity</string>
+    <string name="btnAdd">Add note</string>
+    <string name="typeNoteHere">Type note here</string>
+    <string name="msgNoText">There is no text</string>
 </resources>
