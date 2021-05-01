@@ -1,7 +1,12 @@
 <resources>
-    <string name="appName">Third assignment template</string>
+    <string name="appName">Notes: add and delete</string>
     <string name="openReceiverActivity">Open new activity</string>
     <string name="btnAdd">Add note</string>
+    <string name="btnDelete">Delete note</string>
     <string name="typeNoteHere">Type note here</string>
     <string name="msgNoText">There is no text</string>
+    <string-array name="counterArray">
+        <item>Chars</item>
+        <item>Words</item>
+    </string-array>
 </resources>

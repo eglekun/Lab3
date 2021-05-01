@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.example.third_assignment_template.AddNoteActivity"></activity>
+        <activity android:name="com.example.third_assignment_template.DeleteNoteActivity"></activity>
         <activity android:name="com.example.third_assignment_template.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
