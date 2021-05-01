@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -35,19 +33,24 @@ public class DeleteNoteActivity extends AppCompatActivity {
     }
 
     public void onDeleteNoteClick(View view) {
-
-        //https://stackoverflow.com/questions/14034803/misbehavior-when-trying-to-store-a-string-set-using-sharedpreferences
+        String selection = this.ddSelection.getSelectedItem().toString();
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor spEd = sp.edit();
         Set<String> oldSet = sp.getStringSet("notes", new HashSet<String>());
-        Set<String> newStrSet = new HashSet<String>();
-        //newStrSet.add(txtNote.getText().toString());
-        newStrSet.addAll(oldSet);
-
-        spEd.putStringSet("notes",newStrSet);
-        spEd.apply();
-
+        if (oldSet.isEmpty()) {
+            Toast.makeText(getApplicationContext(), R.string.msgNoText, Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Set<String> newStrSet = new HashSet<String>();
+            for (String str : oldSet) {
+                if (!str.equals(selection)) {
+                    newStrSet.add(str);
+                }
+            }
+            spEd.putStringSet("notes",newStrSet);
+            spEd.apply();
+            Toast.makeText(getApplicationContext(), R.string.msgDeleted, Toast.LENGTH_SHORT).show();
+        }
         finish();
-
     }
 }

@@ -26,20 +26,21 @@ public class AddNoteActivity extends AppCompatActivity {
              Toast.makeText(getApplicationContext(), R.string.msgNoText, Toast.LENGTH_SHORT).show();
          }
          else {
-             //https://stackoverflow.com/questions/14034803/misbehavior-when-trying-to-store-a-string-set-using-sharedpreferences
              SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
              SharedPreferences.Editor spEd = sp.edit();
              Set<String> oldSet = sp.getStringSet("notes", new HashSet<String>());
              Set<String> newStrSet = new HashSet<String>();
-             newStrSet.add(txtNote.getText().toString());
-             newStrSet.addAll(oldSet);
 
-             spEd.putStringSet("notes",newStrSet);
-             spEd.apply();
-
+             boolean isNoteExists = oldSet.contains(txtNote.getText().toString());
+             if (isNoteExists) {
+                 Toast.makeText(getApplicationContext(), R.string.msgNoteExists, Toast.LENGTH_SHORT).show();
+             } else {
+                 newStrSet.add(txtNote.getText().toString());
+                 newStrSet.addAll(oldSet);
+                 spEd.putStringSet("notes",newStrSet);
+                 spEd.apply();
+             }
              finish();
          }
-
-
     }
 }

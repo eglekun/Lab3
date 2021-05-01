@@ -5,8 +5,6 @@
     <string name="btnDelete">Delete note</string>
     <string name="typeNoteHere">Type note here</string>
     <string name="msgNoText">There is no text</string>
-    <string-array name="counterArray">
-        <item>Chars</item>
-        <item>Words</item>
-    </string-array>
+    <string name="msgDeleted">Note deleted</string>
+    <string name="msgNoteExists">Note already exists!</string>
 </resources>
