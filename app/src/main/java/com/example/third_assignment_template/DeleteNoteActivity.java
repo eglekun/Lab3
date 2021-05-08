@@ -33,14 +33,15 @@ public class DeleteNoteActivity extends AppCompatActivity {
     }
 
     public void onDeleteNoteClick(View view) {
-        String selection = this.ddSelection.getSelectedItem().toString();
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor spEd = sp.edit();
         Set<String> oldSet = sp.getStringSet("notes", new HashSet<String>());
+
         if (oldSet.isEmpty()) {
-            Toast.makeText(getApplicationContext(), R.string.msgNoText, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.msgNoNotes, Toast.LENGTH_SHORT).show();
         }
         else {
+            String selection = this.ddSelection.getSelectedItem().toString();
             Set<String> newStrSet = new HashSet<String>();
             for (String str : oldSet) {
                 if (!str.equals(selection)) {

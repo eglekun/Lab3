@@ -7,4 +7,5 @@
     <string name="msgNoText">There is no text</string>
     <string name="msgDeleted">Note deleted</string>
     <string name="msgNoteExists">Note already exists!</string>
+    <string name="msgNoNotes">There isn\'t any note</string>
 </resources>
